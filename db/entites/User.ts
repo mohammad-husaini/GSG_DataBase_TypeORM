@@ -11,6 +11,7 @@ export class User extends BaseEntity {
 
     @Column()
     username: string;
+    user: Role;
 
     @BeforeInsert()
     async hashPassword() {
@@ -25,11 +26,11 @@ export class User extends BaseEntity {
     @Column()
     email: string;
 
-    @OneToOne(() => Profile)
+    @OneToOne(() => Profile, { eager: true })
     @JoinColumn()
     profile: Profile;
 
-    @ManyToMany(() => Role, role => role.users, { cascade: true, eager: true })
+    @ManyToMany(() => Role, role => role.users, { eager: true, cascade: true })
     @JoinTable()
     roles: Role[];
 

@@ -6,8 +6,10 @@ import { Role } from "./Role.js";
 export class Permission extends BaseEntity {
     @PrimaryGeneratedColumn()
     id: string;
+
     @Column()
     name: string;
+
     @ManyToMany(() => Role, role => role.id)
     roles: Role[];
 

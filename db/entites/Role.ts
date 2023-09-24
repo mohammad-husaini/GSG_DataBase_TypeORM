@@ -12,9 +12,11 @@ export class Role extends BaseEntity {
         default: 'user'
     })
     name: 'admin' | 'user' | 'editor';
-    @ManyToMany(() => User, user => user.id)
+
+    @ManyToMany(() => User, user => user.roles)
     users: User[];
-    @ManyToMany(() => Permission, { cascade: true, eager: true })
+
+    @ManyToMany(() => Permission, { eager: true })
     @JoinTable()
     permissions: Permission[];
 

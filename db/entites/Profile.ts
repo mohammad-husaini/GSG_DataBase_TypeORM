@@ -6,10 +6,13 @@ import { User } from "./User.js";
 export class Profile extends BaseEntity {
     @PrimaryGeneratedColumn('uuid')
     id: string
+
     @Column()
     firstName: string
+
     @Column()
     lastName: string
+
     @Column()
     dateOfBirth: Date
 

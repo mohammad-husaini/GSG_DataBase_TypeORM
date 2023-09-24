@@ -1,5 +1,6 @@
 import 'dotenv/config'
 import express, { json } from 'express'
+import roleRoute from './router/Role.js'
 import dataSource from './db/DataSource.js'
 import UserRoute from './router/User.js'
 import PermissionRoute from './router/Permission.js'
@@ -11,6 +12,7 @@ app.use(express.json())
 
 app.use('/users', UserRoute)
 app.use('/permission', PermissionRoute)
+app.use('/role', roleRoute)
 
 
 app.listen(PORT, () => {
